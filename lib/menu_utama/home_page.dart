@@ -25,7 +25,8 @@ class _HomePageState extends State<HomePage> {
   void _toggleSearch() {
     setState(() {
       _isSearching = !_isSearching; // Toggle pencarian
-      if (!_isSearching) _searchQuery = ""; // Reset query jika pencarian dimatikan
+      if (!_isSearching)
+        _searchQuery = ""; // Reset query jika pencarian dimatikan
     });
   }
 
@@ -47,7 +48,8 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       child: Scaffold(
-        backgroundColor: Colors.transparent, // Background Scaffold dibuat transparan
+        backgroundColor:
+            Colors.transparent, // Background Scaffold dibuat transparan
         appBar: AppBar(
           automaticallyImplyLeading: false,
           backgroundColor: Colors.black,
@@ -77,7 +79,7 @@ class _HomePageState extends State<HomePage> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const NotificationPage(),
+                    builder: (context) => NotificationPage(),
                   ),
                 );
               },
@@ -87,7 +89,8 @@ class _HomePageState extends State<HomePage> {
                 _isSearching ? Icons.close : Icons.search,
                 color: Colors.white,
               ),
-              onPressed: _toggleSearch, // Panggil toggleSearch untuk toggle status
+              onPressed:
+                  _toggleSearch, // Panggil toggleSearch untuk toggle status
             ),
           ],
         ),
@@ -128,7 +131,9 @@ class _HomePageState extends State<HomePage> {
                   // Tambahkan Spacer di kiri untuk penyeimbang
                   const Spacer(flex: 1),
                   IconButton(
-                    icon: Icon(Icons.home, color: _selectedIndex == 0 ? Colors.orange : Colors.white),
+                    icon: Icon(Icons.home,
+                        color:
+                            _selectedIndex == 0 ? Colors.orange : Colors.white),
                     onPressed: () {
                       setState(() {
                         _selectedIndex = 0; // Ubah ke halaman Home
@@ -137,7 +142,9 @@ class _HomePageState extends State<HomePage> {
                   ),
                   const SizedBox(width: 200), // Jarak antar icon
                   IconButton(
-                    icon: Icon(Icons.account_circle, color: _selectedIndex == 1 ? Colors.orange : Colors.white),
+                    icon: Icon(Icons.account_circle,
+                        color:
+                            _selectedIndex == 1 ? Colors.orange : Colors.white),
                     onPressed: () {
                       setState(() {
                         _selectedIndex = 1; // Ubah ke halaman Account
@@ -145,7 +152,9 @@ class _HomePageState extends State<HomePage> {
                     },
                   ),
                   // Tambahkan Spacer di kanan untuk penyeimbang
-                  const Spacer(flex: 1,),
+                  const Spacer(
+                    flex: 1,
+                  ),
                 ],
               ),
             ),
@@ -163,11 +172,11 @@ class HomeContent extends StatelessWidget {
   final ValueChanged<String> onSearchQueryChanged;
 
   const HomeContent({
-    Key? key,
+    super.key,
     required this.isSearching,
     required this.searchQuery,
     required this.onSearchQueryChanged,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -175,7 +184,7 @@ class HomeContent extends StatelessWidget {
       child: Column(
         children: [
           // Jika pencarian aktif, tampilkan TextField
-          if (isSearching) 
+          if (isSearching)
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: TextField(
@@ -223,7 +232,8 @@ class HomeContent extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(16.0),
                   image: DecorationImage(
-                    image: AssetImage(item['image']!), // Mengambil gambar dari map
+                    image:
+                        AssetImage(item['image']!), // Mengambil gambar dari map
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -266,7 +276,8 @@ class HomeContent extends StatelessWidget {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => const SeeAllPage()),
+                      MaterialPageRoute(
+                          builder: (context) => const SeeAllPage()),
                     );
                   },
                 ),
@@ -286,7 +297,8 @@ class HomeContent extends StatelessWidget {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => const ClassPage()),
+                      MaterialPageRoute(
+                          builder: (context) => const ClassPage()),
                     );
                   },
                 ),
@@ -296,7 +308,8 @@ class HomeContent extends StatelessWidget {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => const DiscountsPage()),
+                      MaterialPageRoute(
+                          builder: (context) => const DiscountsPage()),
                     );
                   },
                 ),
@@ -306,7 +319,8 @@ class HomeContent extends StatelessWidget {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => const FacilitiesPage()),
+                      MaterialPageRoute(
+                          builder: (context) => const FacilitiesPage()),
                     );
                   },
                 ),

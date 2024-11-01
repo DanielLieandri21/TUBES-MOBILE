@@ -8,11 +8,11 @@ class AccountPage extends StatelessWidget {
   final ValueChanged<String> onSearchQueryChanged; // Tambahkan handler untuk perubahan query
 
   const AccountPage({
-    Key? key,
+    super.key,
     required this.isSearching,
     required this.searchQuery,
     required this.onSearchQueryChanged,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
